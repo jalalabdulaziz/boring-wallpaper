@@ -15,9 +15,10 @@ const WallpaperGenerator = () => {
   const [selectedDevice, setSelectedDevice] = useState("macbookair13");
   const [selectedSize, setSelectedSize] = useState("1440x900 @2x");
   const [deviceFrame, setDeviceFrame] = useState("macbook");
+  const [color, setColor] = useState("#ffffff");
   const formattedDate = useFormattedDate();
 
-  // Predefined screen sizes categorized by device type
+  // Predefined screen resolutions categorized by device type
   const screenSizes = {
     macbookair13: [
       { label: "1440x900 @2x", width: 2880, height: 1800, scale: 2 },
@@ -82,7 +83,10 @@ const WallpaperGenerator = () => {
   // Handle color change
   const handleColorChange = (color) => {
     setBackgroundColor(color.hex);
+    setColor(color.hex);
   };
+
+  const svgFillColor = color === "#ffffff" ? "#000000" : "#ffffff";
 
   // Handle device type change
   const handleDeviceChange = (e) => {
@@ -201,21 +205,22 @@ const WallpaperGenerator = () => {
 
   return (
     <div className="container" style={{ textAlign: "center" }}>
-      <div className="row">
-        <div className="col c-12 header">
+      <header className="row">
+        <div className="col full header">
           <svg
             className="icon"
             width="96"
             height="96"
             viewBox="0 0 96 96"
             fill="none"
+            xmlns="http://www.w3.org/2000/svg"
           >
             <rect
               x="0.5"
               y="0.5"
               width="95"
               height="95"
-              rx="8"
+              rx="7"
               fill="black"
               stroke="#262626"
             />
@@ -231,13 +236,18 @@ const WallpaperGenerator = () => {
               d="M22.7876 14.3042C22.8991 14.3042 23.0715 14.3175 23.305 14.344C23.5437 14.3652 23.8143 14.4236 24.1167 14.5191C24.4192 14.6146 24.7269 14.7684 25.0399 14.9807C25.353 15.1929 25.6421 15.49 25.9074 15.872C25.8809 15.8879 25.7801 15.9596 25.605 16.0869C25.4352 16.2142 25.2415 16.3999 25.024 16.644C24.8065 16.8828 24.6155 17.1878 24.451 17.5592C24.2918 17.9253 24.2122 18.3631 24.2122 18.8724C24.2122 19.456 24.313 19.9495 24.5147 20.3527C24.7216 20.7559 24.9603 21.0822 25.2309 21.3316C25.5068 21.581 25.7509 21.764 25.9631 21.8807C26.1806 21.9922 26.2974 22.0505 26.3133 22.0558C26.308 22.0771 26.2682 22.1964 26.1939 22.414C26.1196 22.6262 26.0029 22.9021 25.8437 23.2417C25.6899 23.5759 25.4883 23.9261 25.2389 24.2922C25.0107 24.6158 24.7746 24.9262 24.5306 25.2233C24.2918 25.5205 24.0292 25.7619 23.7427 25.9476C23.4615 26.1386 23.1431 26.2341 22.7876 26.2341C22.5171 26.2341 22.2863 26.2022 22.0953 26.1386C21.9042 26.0749 21.7212 26.0006 21.5461 25.9157C21.3763 25.8362 21.188 25.7645 20.9811 25.7009C20.7741 25.6372 20.5168 25.6054 20.2091 25.6054C19.8058 25.6054 19.4689 25.6584 19.1983 25.7645C18.933 25.8759 18.681 25.9847 18.4423 26.0908C18.2035 26.1969 17.9223 26.25 17.5987 26.25C17.1052 26.25 16.6702 26.0537 16.2935 25.6611C15.9221 25.2684 15.54 24.7989 15.1474 24.2524C14.845 23.8173 14.5691 23.3159 14.3197 22.7482C14.0704 22.1805 13.8714 21.5783 13.7228 20.9416C13.5743 20.305 13.5 19.6683 13.5 19.0316C13.5 18.0129 13.6937 17.156 14.081 16.461C14.4683 15.7659 14.9644 15.2407 15.5692 14.8852C16.1741 14.5297 16.8028 14.3519 17.4554 14.3519C17.8003 14.3519 18.1239 14.4077 18.4264 14.5191C18.7341 14.6305 19.0206 14.7446 19.2859 14.8613C19.5512 14.9727 19.7926 15.0284 20.0101 15.0284C20.217 15.0284 20.4611 14.9701 20.7423 14.8533C21.0235 14.7313 21.3339 14.6093 21.6734 14.4872C22.0183 14.3652 22.3897 14.3042 22.7876 14.3042ZM22.2305 13.0149C21.9653 13.3386 21.631 13.6065 21.2278 13.8187C20.8298 14.031 20.4531 14.1371 20.0977 14.1371C20.0234 14.1371 19.9517 14.1291 19.8828 14.1132C19.8775 14.092 19.8695 14.0548 19.8589 14.0018C19.8536 13.9487 19.8509 13.8903 19.8509 13.8267C19.8509 13.4234 19.9385 13.0308 20.1136 12.6488C20.2887 12.2668 20.4903 11.9485 20.7184 11.6938C20.9996 11.3595 21.3551 11.081 21.7849 10.8581C22.2199 10.6353 22.6364 10.5159 23.0344 10.5C23.0503 10.5902 23.0582 10.6937 23.0582 10.8104C23.0582 11.2189 22.9813 11.6169 22.8274 12.0042C22.6736 12.3862 22.4746 12.7231 22.2305 13.0149Z"
               fill="white"
             />
+            <g fill={svgFillColor}>
+              <path d="M35 50H40V59H35V50Z" />
+              <path d="M56 50H61V59H56V50Z" />
+              <path d="M28 71V76L68 76V71L28 71Z" />
+            </g>
           </svg>
           <h1 className="">macOS Boring Wallpaper</h1>
           <p className="description">Plain color. Nothing fancy.</p>
         </div>
-      </div>
+      </header>
       <div className="row">
-        <div className="col c-12 mockup">
+        <div className="col full mockup">
           <div className="device">
             <div className="macos-screen">
               <div className="macos-menubar">
@@ -256,10 +266,11 @@ const WallpaperGenerator = () => {
                     />
                   </svg>
                   <div className="menu">
-                    <span>Terminal</span>
-                    <span>Shell</span>
+                    <span>Finder</span>
+                    <span>File</span>
                     <span>Edit</span>
                     <span>View</span>
+                    <span>Go</span>
                     <span>Windows</span>
                     <span>Help</span>
                   </div>
@@ -284,7 +295,7 @@ const WallpaperGenerator = () => {
               <div className="config-container">
                 <div className="config-row">
                   <label>
-                    <span>Pick color:</span>
+                    <span>Pick color</span>
                     <div
                       className="color-picker"
                       onClick={() => setIsColorPickerOpen(!isColorPickerOpen)}
@@ -304,7 +315,7 @@ const WallpaperGenerator = () => {
                         }}
                       >
                         <div
-                          className="color-picker-apply"
+                          className="color-picker-close"
                           onClick={() =>
                             setIsColorPickerOpen(!isColorPickerOpen)
                           }
@@ -319,6 +330,15 @@ const WallpaperGenerator = () => {
                           </svg>
                         </div>
                         <SketchPicker
+                          disableAlpha={true}
+                          presetColors={[
+                            "#0E0E0E",
+                            "#343436",
+                            "#626263",
+                            "#8f8f90",
+                            "#bdbdbd",
+                            "#eaeaea",
+                          ]}
                           color={backgroundColor}
                           onChange={handleColorChange}
                         />
@@ -328,51 +348,61 @@ const WallpaperGenerator = () => {
                 </div>
                 <div className="config-row">
                   <label>
-                    <span>Select Device:</span>
-                    <select
-                      value={selectedDevice}
-                      onChange={handleDeviceChange}
-                      style={{ marginLeft: "10px", padding: "5px" }}
-                    >
-                      <option value="macbookair13">Macbook Air 13"</option>
-                      <option value="macbookair13notch">
-                        Macbook Air 13" Notch
-                      </option>
-                      <option value="macbookpro14notch">
-                        Macbook Pro 14" Notch
-                      </option>
-                      <option value="imac21">iMac 21" 4K</option>
-                      <option value="imac24">iMac 24" 4.5K</option>
-                      <option value="imac27">iMac 27" 5K</option>
-                      <option value="external">External 27" 4K</option>
-                      <option value="nonretina">Non Retina</option>
-                    </select>
+                    <span>Select device</span>
+                    <div className="form-select">
+                      <select
+                        value={selectedDevice}
+                        onChange={handleDeviceChange}
+                      >
+                        <option value="macbookair13">Macbook Air 13"</option>
+                        <option value="macbookair13notch">
+                          Macbook Air 13" Notch
+                        </option>
+                        <option value="macbookpro14notch">
+                          Macbook Pro 14" Notch
+                        </option>
+                        <option value="imac21">iMac 21" 4K</option>
+                        <option value="imac24">iMac 24" 4.5K</option>
+                        <option value="imac27">iMac 27" 5K</option>
+                        <option value="external">External 27" 4K</option>
+                        <option value="nonretina">Non Retina</option>
+                      </select>
+                    </div>
                   </label>
                 </div>
                 <div className="config-row">
                   <label>
-                    <span>Select Screen Size:</span>
-                    <select
-                      value={selectedSize}
-                      onChange={handleSizeChange}
-                      style={{ marginLeft: "10px", padding: "5px" }}
-                    >
-                      {screenSizes[selectedDevice].map((size) => (
-                        <option key={size.label} value={size.label}>
-                          {size.label}
-                        </option>
-                      ))}
-                    </select>
+                    <span>Select resolution</span>
+                    <div className="form-select">
+                      <select value={selectedSize} onChange={handleSizeChange}>
+                        {screenSizes[selectedDevice].map((size) => (
+                          <option key={size.label} value={size.label}>
+                            {size.label}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
                   </label>
                 </div>
               </div>
               <button className="button" onClick={handleDownload}>
-                Download Wallpaper
+                Download wallpaper
               </button>
             </div>
           </div>
         </div>
       </div>
+      <footer>
+        Built out of boredom by{" "}
+        <a href="https://jalal.works/" target="_blank">
+          Jalal
+        </a>
+        . Inspired by{" "}
+        <a href="https://topnotch.app/" target="_blank">
+          TopNotch
+        </a>
+        .
+      </footer>
     </div>
   );
 };
