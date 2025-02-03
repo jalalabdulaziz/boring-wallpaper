@@ -15,7 +15,7 @@ const WallpaperGenerator = () => {
   const [selectedDevice, setSelectedDevice] = useState("macbookair13");
   const [selectedSize, setSelectedSize] = useState("1440x900 @2x");
   const [deviceFrame, setDeviceFrame] = useState("macbook");
-  const [color, setColor] = useState("#ffffff");
+  const [color, setSVGColor] = useState("#000000");
   const formattedDate = useFormattedDate();
 
   // Predefined screen resolutions categorized by device type
@@ -83,9 +83,10 @@ const WallpaperGenerator = () => {
   // Handle color change
   const handleColorChange = (color) => {
     setBackgroundColor(color.hex);
-    setColor(color.hex);
+    setSVGColor(color.hex);
   };
 
+  // Invert SVG fill color based on backgroundColor
   const svgFillColor = color === "#ffffff" ? "#000000" : "#ffffff";
 
   // Handle device type change
