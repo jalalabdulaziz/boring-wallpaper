@@ -217,6 +217,7 @@ const WallpaperGenerator = () => {
             xmlns="http://www.w3.org/2000/svg"
           >
             <rect
+              className="outer-frame"
               x="0.5"
               y="0.5"
               width="95"
@@ -288,6 +289,34 @@ const WallpaperGenerator = () => {
               ></div>
             </div>
             <svg width="100%" height="100%">
+              {/* Safari fix */}
+              <defs>
+                <linearGradient
+                  id="black_grad"
+                  x1="0"
+                  y1="0"
+                  x2="1040"
+                  y2="648"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stopColor="#070707"></stop>
+                  <stop offset="0.5" stopColor="#070707"></stop>
+                  <stop offset="1" stopColor="#242424"></stop>
+                </linearGradient>
+
+                <linearGradient
+                  id="white_grad"
+                  x1="12"
+                  y1="12"
+                  x2="1040"
+                  y2="648"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stopColor="#FCFCFC"></stop>
+                  <stop offset="0.5" stopColor="white"></stop>
+                  <stop offset="1" stopColor="white"></stop>
+                </linearGradient>
+              </defs>
               <use href={`/device_frames.svg#${deviceFrame}`} />
             </svg>
           </div>

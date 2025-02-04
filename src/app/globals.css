@@ -3,6 +3,7 @@
   --foreground: #171717;
   --border: rgba(0, 0, 0, 0.05);
   --grey: color-mix(in srgb, var(--foreground), transparent 50%);
+  --accent: #007aff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,12 +20,12 @@
 }
 
 ::-moz-selection {
-  background: #007aff;
+  background: var(--accent);
   color: #ffffff;
 }
 
 ::selection {
-  background: #007aff;
+  background: var(--accent);
   color: #ffffff;
 }
 
@@ -80,11 +81,18 @@ body {
 }
 
 /* Form */
+select:focus-visible,
+input:focus-visible {
+  outline: none;
+}
+
 select {
   background: transparent;
   border: none;
+  font-size: 14px;
   color: #171717;
   text-align: right;
+  text-align-last: right;
   cursor: pointer;
   padding-right: 28px;
   -webkit-appearance: none;
@@ -100,7 +108,7 @@ select {
 
 .form-select:after {
   background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNyIgaGVpZ2h0PSIxMSIgdmlld0JveD0iMCAwIDcgMTEiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggZD0iTTIuNzg3OSAwLjQxMzEzMkwwLjQwODk5NyAyLjg1MDE0QzAuMzMxNTIzIDIuOTMyMTcgMC4yNzM0MTcgMy4wMTk5IDAuMjM0NjggMy4xMTMzM0MwLjE5ODIyMiAzLjIwNDQ3IDAuMTc5OTkzIDMuMzA1ODcgMC4xNzk5OTMgMy40MTc1M0MwLjE3OTk5MyAzLjU2NzkyIDAuMjE3NTkgMy43MDY5MSAwLjI5Mjc4NiAzLjgzNDUyQzAuMzY3OTgxIDMuOTU5ODQgMC40NjcxMDIgNC4wNjEyNCAwLjU5MDE0OSA0LjEzODcyQzAuNzE1NDc0IDQuMjEzOTEgMC44NTMzMzMgNC4yNTE1MSAxLjAwMzcyIDQuMjUxNTFDMS4yMzM4NyA0LjI1MTUxIDEuNDQwMDggNC4xNTgwOSAxLjYyMjM4IDMuOTcxMjRMMy41MDg4MSAxLjk5OTY1TDUuMzgyMTQgMy45NzEyNEM1LjU1OTg4IDQuMTU4MDkgNS43NjQ5NSA0LjI1MTUxIDUuOTk3MzggNC4yNTE1MUM2LjE0NTQ5IDQuMjUxNTEgNi4yODIyMSA0LjIxMzkxIDYuNDA3NTMgNC4xMzg3MkM2LjUzMjg2IDQuMDYxMjQgNi42MzE5OCAzLjk1OTg0IDYuNzA0OSAzLjgzNDUyQzYuNzgwMDkgMy43MDY5MSA2LjgxNzY5IDMuNTY3OTIgNi44MTc2OSAzLjQxNzUzQzYuODE3NjkgMy4xOTE5NCA2Ljc0MTM1IDMuMDAyODEgNi41ODg2OCAyLjg1MDE0TDQuMjEzMiAwLjQxMzEzMkM0LjA5OTI2IDAuMzAxNDc4IDMuOTg2NDcgMC4yMTk0NDcgMy44NzQ4MiAwLjE2NzAzOEMzLjc2MzE2IDAuMTE0NjI5IDMuNjM4OTggMC4wODcyODU0IDMuNTAyMjYgMC4wODUwMDY3QzMuMjQ0NzcgMC4wODUwMDY3IDMuMDA2NjUgMC4xOTQzODIgMi43ODc5IDAuNDEzMTMyWiIgZmlsbD0iIzE3MTcxNyIgLz4KICA8cGF0aCBkPSJNMi43ODc5IDEwLjU5MTJDMy4wMDY2NSAxMC44MSAzLjI0NDc3IDEwLjkxOTMgMy41MDIyNiAxMC45MTkzQzMuNjM4OTggMTAuOTE3IDMuNzYzMTYgMTAuODkwOCAzLjg3NDgyIDEwLjg0MDdDMy45ODY0NyAxMC43ODgzIDQuMDk5MjYgMTAuNzA1MSA0LjIxMzIgMTAuNTkxMkw2LjU4ODY4IDguMTU0MTlDNi43NDEzNSA4LjAwMTUyIDYuODE3NjkgNy44MTM1MyA2LjgxNzY5IDcuNTkwMjNDNi44MTc2OSA3LjQzNzU2IDYuNzgwMDkgNy4yOTg1NiA2LjcwNDkgNy4xNzMyM0M2LjYzMTk4IDcuMDQ1NjMgNi41MzI4NiA2Ljk0NDIzIDYuNDA3NTMgNi44NjkwM0M2LjI4MjIxIDYuNzkxNTYgNi4xNDU0OSA2Ljc1MjgyIDUuOTk3MzggNi43NTI4MkM1Ljc2NDk1IDYuNzUyODIgNS41NTk4OCA2Ljg0NjI1IDUuMzgyMTQgNy4wMzMxTDMuNTA4ODEgOS4wMDQ2OEwxLjYyMjM4IDcuMDMzMUMxLjQ0MDA4IDYuODQ2MjUgMS4yMzM4NyA2Ljc1MjgyIDEuMDAzNzIgNi43NTI4MkMwLjg1MzMzMyA2Ljc1MjgyIDAuNzE1NDc0IDYuNzkxNTYgMC41OTAxNDkgNi44NjkwM0MwLjQ2NzEwMiA2Ljk0NDIzIDAuMzY3OTgxIDcuMDQ1NjMgMC4yOTI3ODYgNy4xNzMyM0MwLjIxNzU5IDcuMjk4NTYgMC4xNzk5OTMgNy40Mzc1NiAwLjE3OTk5MyA3LjU5MDIzQzAuMTc5OTkzIDcuNjk5NiAwLjE5ODIyMiA3LjgwMSAwLjIzNDY4IDcuODk0NDJDMC4yNzM0MTcgNy45ODU1NyAwLjMzMTUyMyA4LjA3MjE2IDAuNDA4OTk3IDguMTU0MTlMMi43ODc5IDEwLjU5MTJaIiBmaWxsPSIjMTcxNzE3IiAvPgo8L3N2Zz4="),
-    #eaeaea;
+    rgba(0, 0, 0, 0.05);
   background-size: 60% 60%;
   background-position: center;
   background-repeat: no-repeat;
@@ -113,11 +121,12 @@ select {
   right: 0;
   top: 0;
   width: 18px;
+  transition: all 0.25s ease;
 }
 
-select:focus-visible,
-input:focus-visible {
-  outline: none;
+.form-select:hover:after {
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: all 0.25s ease;
 }
 
 input {
@@ -150,7 +159,7 @@ h1 {
       rgba(255, 255, 255, 0.2) 0%,
       rgba(255, 255, 255, 0) 100%
     ),
-    #007aff;
+    var(--accent);
   border: none;
   border-radius: 5px;
   color: #ffffff;
@@ -174,7 +183,7 @@ h1 {
       rgba(255, 255, 255, 0.1) 0%,
       rgba(255, 255, 255, 0) 100%
     ),
-    #007aff;
+    var(--accent);
   transition: all 0.25s ease;
 }
 
@@ -191,8 +200,10 @@ header {
 
 .icon {
   margin-bottom: 32px;
+}
+
+.icon .outer-frame {
   box-shadow: 0px 18px 30px rgba(0, 0, 0, 0.25);
-  border-radius: 8px;
 }
 
 .config {
@@ -315,7 +326,7 @@ label span {
   flex: 1;
 }
 
-.macos-menubar span {
+.macos-menubar .left span {
   margin: 0 8px;
 }
 
@@ -365,5 +376,33 @@ footer a:hover {
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+
+  header {
+    padding-top: 80px;
+    padding-bottom: 48px;
+  }
+
+  .icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .config {
+    top: 120px;
+  }
+
+  footer {
+    padding: 48px 0;
   }
 }
