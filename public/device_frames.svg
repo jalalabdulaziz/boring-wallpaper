@@ -1,33 +1,40 @@
 <svg xmlns="http://www.w3.org/2000/svg">
-<!-- Gradient -->
-  <defs>    
-    <linearGradient id="black_grad" x1="0" y1="0" x2="1040" y2="648" gradientUnits="userSpaceOnUse">
-        <stop stop-color="#070707"></stop>
-        <stop offset="0.5" stop-color="#070707"></stop>
-        <stop offset="1" stop-color="#242424"></stop>
+  <!-- Gradients -->
+  <defs>
+    <linearGradient id="black_grad" x1="520" y1="0" x2="520" y2="480" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#000000" />
+      <stop offset="0.1" />
+      <stop offset="1" stop-color="#141414" />
     </linearGradient>
-
-    <linearGradient id="white_grad" x1="12" y1="12" x2="1040" y2="648" gradientUnits="userSpaceOnUse">
-        <stop stop-color="#FCFCFC"></stop>
-        <stop offset="0.5" stop-color="white"></stop>
-        <stop offset="1" stop-color="white"></stop>
-      </linearGradient>
+    <linearGradient id="white_grad" x1="520" y1="0" x2="520" y2="480" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FCFCFC"></stop>
+      <stop offset="0.5" stop-color="#FFFFFF"></stop>
+      <stop offset="1" stop-color="#FFFFFF"></stop>
+    </linearGradient>
   </defs>
-
-<!-- Devices -->
+  <!-- Devices -->
+  <symbol id="macbook" viewBox="0 0 1040 540">
+    <defs>
+      <clipPath id="clip0_52_110">
+        <rect width="1040" height="540" fill="white"></rect>
+      </clipPath>
+    </defs>
+    <g clip-path="url(#clip0_52_110)">
+      <path d="M990 3H50C33.9837 3 21 15.9837 21 32V677C21 693.016 33.9838 706 50 706H990C1006.02 706 1019 693.016 1019 677V32C1019 15.9837 1006.02 3 990 3Z" stroke="#7D7D80" stroke-width="2"></path>
+      <path d="M23 32C23 17.0883 35.0883 5 50 5H990C1004.91 5 1017 17.0883 1017 32V677C1017 691.912 1004.91 704 990 704H50C35.0883 704 23 691.912 23 677V32Z" fill="url(#black_grad)" stroke="#201F24" stroke-width="2"></path>
+    </g>
+  </symbol>
   <symbol id="macbook_notch" viewBox="0 0 1040 540">
     <defs>
-    <clipPath id="clip0_50_99">
-      <rect width="1040" height="540" fill="white"></rect>
-    </clipPath>
-  </defs>
-  <g clip-path="url(#clip0_50_99)">
-    <path d="M50 21C33.9837 21 21 33.9837 21 50V695C21 711.016 33.9838 724 50 724H990C1006.02 724 1019 711.016 1019 695V50C1019 33.9837 1006.02 21 990 21H50Z" fill="#000000" stroke="#7D7D80" stroke-width="2"></path>
-    <path d="M23 50C23 35.0883 35.0883 23 50 23H990C1004.91 23 1017 35.0883 1017 50V695C1017 709.912 1004.91 722 990 722H50C35.0883 722 23 709.912 23 695V50Z" stroke="#201F24" stroke-width="2"></path>
-  </g>
+      <clipPath id="clip0_50_99">
+        <rect width="1040" height="540" fill="white"></rect>
+      </clipPath>
+    </defs>
+    <g clip-path="url(#clip0_50_99)">
+      <path d="M990 21H50C33.9837 21 21 33.9837 21 50V695C21 711.016 33.9838 724 50 724H990C1006.02 724 1019 711.016 1019 695V50C1019 33.9837 1006.02 21 990 21Z" stroke="#7D7D80" stroke-width="2"></path>
+      <path d="M23 50C23 35.0883 35.0883 23 50 23H990C1004.91 23 1017 35.0883 1017 50V695C1017 709.912 1004.91 722 990 722H50C35.0883 722 23 709.912 23 695V50Z" fill="url(#black_grad)" stroke="#201F24" stroke-width="2"></path>
+    </g>
   </symbol>
-  
-
   <symbol id="imac" viewBox="0 0 1040 540">
     <defs>
       <clipPath id="clip0_50_103">
@@ -38,7 +45,6 @@
       <path d="M1004 3H36C17.7746 3 3 17.7746 3 36V657C3 675.225 17.7746 690 36 690H1004C1022.23 690 1037 675.225 1037 657V36C1037 17.7746 1022.23 3 1004 3Z" fill="url(#black_grad)" stroke="black" stroke-width="2"></path>
     </g>
   </symbol>
-
   <symbol id="imac24" viewBox="0 0 1040 540">
     <defs>
       <clipPath id="clip0_50_109">
@@ -49,19 +55,16 @@
       <path d="M1018 11H22C15.9249 11 11 15.9249 11 22V687C11 693.075 15.9249 698 22 698H1018C1024.08 698 1029 693.075 1029 687V22C1029 15.9249 1024.08 11 1018 11Z" fill="url(#white_grad)" stroke="#F0F0F0" stroke-width="2"></path>
     </g>
   </symbol>
-
   <symbol id="studio_display" viewBox="0 0 1040 540">
     <defs>
       <clipPath id="clip0_50_114">
         <rect width="1040" height="540" fill="white"></rect>
       </clipPath>
-    </defs>  
+    </defs>
     <g clip-path="url(#clip0_50_114)">
       <path d="M1018 11H22C15.9249 11 11 15.9249 11 22V687C11 693.075 15.9249 698 22 698H1018C1024.08 698 1029 693.075 1029 687V22C1029 15.9249 1024.08 11 1018 11Z" fill="url(#black_grad)" stroke="black" stroke-width="2"></path>
     </g>
-
   </symbol>
-
   <symbol id="external_monitor" viewBox="0 0 1040 540">
     <defs>
       <clipPath id="clip0_50_119">
@@ -72,16 +75,4 @@
       <path d="M1012 714H1013V713V30C1013 28.3431 1011.66 27 1010 27H30C28.3431 27 27 28.3432 27 30V713V714H28H1012Z" fill="url(#black_grad)" stroke="black" stroke-width="2"></path>
     </g>
   </symbol>
-
-  <symbol id="macbook" viewBox="0 0 1040 540">
-  <defs>
-    <clipPath id="clip0_52_120">
-      <rect width="1040" height="540" fill="white"></rect>
-    </clipPath>
-  </defs>  
-  <g clip-path="url(#clip0_52_120)">
-    <path d="M990 3H50C33.9837 3 21 15.9837 21 32V677C21 693.016 33.9838 706 50 706H990C1006.02 706 1019 693.016 1019 677V32C1019 15.9837 1006.02 3 990 3Z" fill="#000000" stroke="#7D7D80" stroke-width="2"></path>
-    <path d="M50 5H990C1004.91 5 1017 17.0883 1017 32V677C1017 691.912 1004.91 704 990 704H50C35.0883 704 23 691.912 23 677V32C23 17.0883 35.0883 5 50 5Z" stroke="#201F24" stroke-width="2"></path>
-  </g>
-</symbol>
 </svg>

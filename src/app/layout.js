@@ -1,3 +1,5 @@
+import "./globals.css";
+
 export const metadata = {
   title: "macOS Boring Wallpaper",
   description: "Plain color. Nothing fancy.",

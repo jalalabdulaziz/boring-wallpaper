@@ -222,7 +222,7 @@ const WallpaperGenerator = () => {
               y="0.5"
               width="95"
               height="95"
-              rx="7"
+              rx="11"
               fill="black"
               stroke="#262626"
             />
@@ -239,9 +239,11 @@ const WallpaperGenerator = () => {
               fill="white"
             />
             <g fill={svgFillColor}>
-              <path d="M35 50H40V59H35V50Z" />
-              <path d="M56 50H61V59H56V50Z" />
-              <path d="M28 71V76L68 76V71L28 71Z" />
+              <path d="M36 50H41V59H36V50Z" />
+              <path d="M55 50H60V59H55V50Z" />
+              <path d="M33 71V76L63 76V71L33 71Z" />
+              <path className="smiley" d="M28 71V76H33V71H28Z" />
+              <path className="smiley" d="M63 71V76H68V71H63Z" />
             </g>
           </svg>
           <h1 className="">macOS Boring Wallpaper</h1>
@@ -252,7 +254,7 @@ const WallpaperGenerator = () => {
         <div className="col full mockup">
           <div className="device">
             <div className="macos-screen">
-              <div className="macos-menubar">
+              <div className="macos-menubar prevent-select">
                 <div className="left">
                   <svg
                     className="apple-logo"
@@ -293,28 +295,28 @@ const WallpaperGenerator = () => {
               <defs>
                 <linearGradient
                   id="black_grad"
-                  x1="0"
+                  x1="520"
                   y1="0"
-                  x2="1040"
-                  y2="648"
+                  x2="520"
+                  y2="480"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stopColor="#070707"></stop>
-                  <stop offset="0.5" stopColor="#070707"></stop>
-                  <stop offset="1" stopColor="#242424"></stop>
+                  <stop stopColor="#000000" />
+                  <stop offset="0.1" />
+                  <stop offset="1" stopColor="#141414" />
                 </linearGradient>
 
                 <linearGradient
                   id="white_grad"
-                  x1="12"
-                  y1="12"
-                  x2="1040"
-                  y2="648"
+                  x1="520"
+                  y1="0"
+                  x2="520"
+                  y2="480"
                   gradientUnits="userSpaceOnUse"
                 >
                   <stop stopColor="#FCFCFC"></stop>
-                  <stop offset="0.5" stopColor="white"></stop>
-                  <stop offset="1" stopColor="white"></stop>
+                  <stop offset="0.5" stopColor="#FFFFFF"></stop>
+                  <stop offset="1" stopColor="#FFFFFF"></stop>
                 </linearGradient>
               </defs>
               <use href={`/device_frames.svg#${deviceFrame}`} />
@@ -325,7 +327,7 @@ const WallpaperGenerator = () => {
               <div className="config-container">
                 <div className="config-row">
                   <label>
-                    <span>Pick color</span>
+                    <span className="prevent-select">Pick color</span>
                     <div
                       className="color-picker"
                       onClick={() => setIsColorPickerOpen(!isColorPickerOpen)}
@@ -378,13 +380,15 @@ const WallpaperGenerator = () => {
                 </div>
                 <div className="config-row">
                   <label>
-                    <span>Select device</span>
+                    <span className="prevent-select">Select device</span>
                     <div className="form-select">
                       <select
                         value={selectedDevice}
                         onChange={handleDeviceChange}
                       >
-                        <option value="macbookair13">Macbook Air 13"</option>
+                        <option value="macbookair13">
+                          Macbook Air & Pro 13"
+                        </option>
                         <option value="macbookair13notch">
                           Macbook Air 13" Notch
                         </option>
@@ -402,7 +406,7 @@ const WallpaperGenerator = () => {
                 </div>
                 <div className="config-row">
                   <label>
-                    <span>Select resolution</span>
+                    <span className="prevent-select">Select resolution</span>
                     <div className="form-select">
                       <select value={selectedSize} onChange={handleSizeChange}>
                         {screenSizes[selectedDevice].map((size) => (
